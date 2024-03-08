@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
+  const url = window.location.host === 'localhost:3000' ? 'http://localhost:5000' : 'http://localhost:5000';
   const [nodes, setNodes] = useState<Object>({});
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -16,7 +17,7 @@ const App: React.FC = () => {
 
   const fetchNodes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/nodes/fetch', {
+      const response = await axios.get(`${url}/api/nodes/fetch`, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -43,7 +44,7 @@ const App: React.FC = () => {
     const formData = new FormData();
     formData.append('nodes', selectedFile);
     try {
-      const response = await axios.post('http://localhost:5000/api/nodes/upload', formData, {
+      const response = await axios.post(`${url}/api/nodes/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
