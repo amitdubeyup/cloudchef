@@ -6,7 +6,7 @@
 ### Live App URL: https://cloudchef-ajuv.onrender.com
 
 
-## Tech Stack
+### Tech Stack
 
   1. NodeJS (Version: 14+)
   2. ExpressJS (Version: 4+)
@@ -14,7 +14,7 @@
   4. MongoDB & Mongoose (Version: 5+)
 
 
-## Quick Start
+### Quick Start
 
 Clone the repository:
 
@@ -43,10 +43,10 @@ $ npm start
   View the app at: http://localhost:5000
 
 
-## People
+### People
 
 The lead maintainer is [Amit Dubey](https://github.com/amitdubeyup)
 
-## License
+### License
 
   [MIT](LICENSE)
