@@ -1,0 +1,37 @@
+[
+  {
+    "name": "name1",
+    "parentName": null,
+    "childrenNames": ["name2", "name3"]
+  },
+  {
+    "name": "name2",
+    "parentName": "name1",
+    "childrenNames": ["name4"]
+  },
+  {
+    "name": "name3",
+    "parentName": "name1",
+    "childrenNames": ["name5", "name6", "name7"]
+  },
+  {
+    "name": "name4",
+    "parentName": "name2",
+    "childrenNames": []
+  },
+  {
+    "name": "name5",
+    "parentName": "name3",
+    "childrenNames": []
+  },
+  {
+    "name": "name6",
+    "parentName": "name3",
+    "childrenNames": []
+  },
+  {
+    "name": "name7",
+    "parentName": "name3",
+    "childrenNames": []
+  }
+]

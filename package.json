@@ -1,0 +1,27 @@
+{
+  "name": "cloudchef",
+  "version": "1.0.0",
+  "description": "An awesome app for managing the kitchen through cloud.",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "main": "app.js",
+  "start": "node app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "App is working fine!"
+  },
+  "author": "Amit Dubey",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.1",
+    "fs-extra": "^11.2.0",
+    "mongoose": "^5.11.7",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
