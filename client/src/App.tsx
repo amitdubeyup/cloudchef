@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const App: React.FC = () => {
   const url = window.location.host === 'localhost:3000' ? 'http://localhost:5000' : 'https://cloudchef-ajuv.onrender.com';
   const [nodes, setNodes] = useState<Object>({});
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<any>(null);
+  const [selectedFileRef, setSelectedFileRef] = useState<any>(null);
 
   useEffect(() => {
     fetchNodes();
@@ -33,8 +34,9 @@ const App: React.FC = () => {
     }
   };
 
-  const handleFileSelect = (file: any) => {
+  const handleFileSelect = (file: any, fileRef: any) => {
     setSelectedFile(file);
+    setSelectedFileRef(fileRef);
   };
 
   const handleUpload = async () => {
@@ -51,8 +53,11 @@ const App: React.FC = () => {
         },
       });
       if (response?.data && response?.data?.success) {
-        fetchNodes();
         toast(response?.data?.message, { type: 'success' });
+        fetchNodes();
+        setSelectedFile(null);
+        setSelectedFileRef(null);
+        if (selectedFileRef) selectedFileRef.current.value = '';
       } else {
         toast(response?.data?.message, { type: 'error' });
       }
