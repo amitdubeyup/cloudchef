@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+interface TreeNodeProps {
+  node: Record<string, any>;
+}
+
+const TreeNode: React.FC<TreeNodeProps> = ({ node }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <ul>
+      {Object.entries(node).map(([nodeName, childNode]) => (
+        <li key={nodeName}>
+          {nodeName}
+          {Object.keys(childNode).length > 0 && <TreeNode node={childNode} />}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const Tree: React.FC = () => {
+  const data = {
+    name1: {
+      name2: {
+        name4: {},
+      },
+      name3: {
+        name5: {},
+        name6: {},
+        name7: {},
+      },
+    },
+  };
+
+  return (
+    <div className="tree-container">
+      <TreeNode node={data} />
     </div>
   );
-}
+};
+
+const App: React.FC = () => {
+  return <Tree />;
+};
 
 export default App;

@@ -4,10 +4,33 @@ const NodesModal = require('../modals/nodes');
 const fetchNodes = async (req, res) => {
   try {
     const result = await NodesModal.find({}).select({ name: 1, parentName: 1, childrenNames: 1, _id: 0 });
+    function generateTree(inputData) {
+      const tree = {};
+      const nodes = {};
+      inputData.forEach((item) => {
+        nodes[item.name] = item;
+      });
+      function buildTree(nodeName) {
+        const node = nodes[nodeName];
+        if (!node) return {};
+        const children = {};
+        node.childrenNames.forEach((childName) => {
+          children[childName] = buildTree(childName);
+        });
+        return children;
+      }
+      inputData.forEach((item) => {
+        if (item.parentName === null) {
+          tree[item.name] = buildTree(item.name);
+        }
+      });
+      return tree;
+    }
+    const tree = generateTree(result);
     return res.send({
       success: true,
       message: 'Nodes fetched successfully.',
-      data: result,
+      data: tree,
     });
   } catch (error) {
     return res.send({
@@ -16,7 +39,6 @@ const fetchNodes = async (req, res) => {
     });
   }
 };
-// -
 
 const getFileData = async (file) => {
   try {
