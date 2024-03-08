@@ -40,7 +40,7 @@ Start the app:
 $ npm start
 ```
 
-  View the app at: http://localhost:3000
+  View the app at: http://localhost:5000
 
 
 ## People
