@@ -16,37 +16,9 @@
 
 .tree .node {
     display: inline-block;
-    padding: 5px 10px;
-    /* border: 1px solid #ccc; */
-    /* border-radius: 5px; */
+    padding: 8px 15px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #f0f0f0;
     margin-bottom: 75px;
-}
-
-.tree li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -30px;
-    /* border-left: 1px solid #ccc; */
-    height: 100%;
-}
-
-.tree li:first-child::before {
-    top: 50%;
-}
-
-.tree li::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -30px;
-    /* border-left: 1px solid #ccc; */
-    /* border-top: 1px solid #ccc; */
-    transform: translateY(-50%);
-    height: 100%;
-}
-
-.tree li:first-child::after {
-    display: none;
 }
