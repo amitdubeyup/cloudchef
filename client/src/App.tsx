@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
-  const url = window.location.host === 'localhost:3000' ? 'http://localhost:5000' : 'http://localhost:5000';
+  const url = window.location.host === 'localhost:3000' ? 'http://localhost:5000' : 'https://cloudchef-ajuv.onrender.com';
   const [nodes, setNodes] = useState<Object>({});
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
