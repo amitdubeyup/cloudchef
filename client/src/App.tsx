@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Tree from './components/Tree';
@@ -65,7 +66,7 @@ const App: React.FC = () => {
       <Tree data={nodes} />
       <div className="file">
         <FilePicker onFileSelect={handleFileSelect} />
-        <button className="button" onClick={handleUpload}>
+        <button className="button" onClick={() => handleUpload()}>
           Upload File
         </button>
       </div>
