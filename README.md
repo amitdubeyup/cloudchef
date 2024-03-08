@@ -3,7 +3,7 @@
   An awesome app for managing the kitchen through cloud.
   
   
-### Live App URL: https://github.com/amitdubeyup/cloudchef.git
+### Live App URL: https://cloudchef-ajuv.onrender.com
 
 
 ## Tech Stack
