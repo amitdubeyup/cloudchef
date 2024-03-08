@@ -1,46 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Tree from './components/Tree';
+import FilePicker from './components/FilePicker';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-interface TreeNodeProps {
-  node: Record<string, any>;
-}
+const App: React.FC = () => {
+  const [nodes, setNodes] = useState<Object>({});
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-const TreeNode: React.FC<TreeNodeProps> = ({ node }) => {
-  return (
-    <ul>
-      {Object.entries(node).map(([nodeName, childNode]) => (
-        <li key={nodeName}>
-          {nodeName}
-          {Object.keys(childNode).length > 0 && <TreeNode node={childNode} />}
-        </li>
-      ))}
-    </ul>
-  );
-};
+  useEffect(() => {
+    fetchNodes();
+  }, []);
 
-const Tree: React.FC = () => {
-  const data = {
-    name1: {
-      name2: {
-        name4: {},
-      },
-      name3: {
-        name5: {},
-        name6: {},
-        name7: {},
-      },
-    },
+  const fetchNodes = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/nodes/fetch', {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      if (response?.data && response?.data?.success) {
+        setNodes(response?.data?.data);
+      } else {
+        toast(response?.data?.message, { type: 'error' });
+      }
+    } catch (error: any) {
+      toast(error?.message ?? 'Unknown error, please try again.', { type: 'error' });
+    }
+  };
+
+  const handleFileSelect = (file: any) => {
+    setSelectedFile(file);
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      toast('Please select a valid file of nodes.', { type: 'error' });
+      return;
+    }
+    const formData = new FormData();
+    formData.append('nodes', selectedFile);
+    try {
+      const response = await axios.post('http://localhost:5000/api/nodes/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      if (response?.data && response?.data?.success) {
+        fetchNodes();
+        toast(response?.data?.message, { type: 'success' });
+      } else {
+        toast(response?.data?.message, { type: 'error' });
+      }
+    } catch (error: any) {
+      toast(error?.message ?? 'Unknown error, please try again.', { type: 'error' });
+    }
   };
 
   return (
-    <div className="tree-container">
-      <TreeNode node={data} />
+    <div className="main">
+      <Tree data={nodes} />
+      <div className="file">
+        <FilePicker onFileSelect={handleFileSelect} />
+        <button className="button" onClick={handleUpload}>
+          Upload File
+        </button>
+      </div>
+      <ToastContainer />
     </div>
   );
-};
-
-const App: React.FC = () => {
-  return <Tree />;
 };
 
 export default App;
