@@ -1,4 +1,4 @@
-# cloudchef
+# cloudchef-interview-task
 
 ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 
@@ -19,8 +19,8 @@ An awesome app for managing the kitchen through cloud.
 
 ```bash
 # Clone the repository
-git clone https://github.com/amitdubeyup/cloudchef.git
-cd cloudchef
+git clone https://github.com/amitdubeyup/cloudchef-interview-task.git
+cd cloudchef-interview-task
 
 # Install dependencies
 npm install
@@ -54,7 +54,7 @@ npm test
 ## 📁 Project Structure
 
 ```
-cloudchef/
+cloudchef-interview-task/
 ├── public/
 ├── package.json
 ├── .env.example
