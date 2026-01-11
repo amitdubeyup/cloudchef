@@ -1,52 +1,76 @@
-# CloudChef App
+# cloudchef
 
-  An awesome app for managing the kitchen through cloud.
-  
-  
-### Live App URL: https://cloudchef-ajuv.onrender.com
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 
+An awesome app for managing the kitchen through cloud.
 
-### Tech Stack
+## 🚀 Tech Stack
 
-  1. NodeJS (Version: 14+)
-  2. ExpressJS (Version: 4+)
-  3. ReactJS (Version: 18+)
-  4. MongoDB & Mongoose (Version: 5+)
+- Express.js
+- MongoDB
 
+## ✨ Features
 
-### Quick Start
+- Modern and scalable architecture
+- Database integration
+- RESTful API endpoints
 
-Clone the repository:
-
-```bash
-$ git clone https://github.com/amitdubeyup/cloudchef.git
-```
-
-Goto project directory:
+## 📦 Installation
 
 ```bash
-$ cd cloudchef
+# Clone the repository
+git clone https://github.com/amitdubeyup/cloudchef.git
+cd cloudchef
+
+# Install dependencies
+npm install
 ```
 
-Install dependencies:
+## ⚙️ Configuration
+
+Create a `.env` file in the root directory:
 
 ```bash
-$ npm install
+cp .env.example .env
 ```
 
-Start the app:
+Update the `.env` file with your configuration values.
+
+## 🚀 Usage
 
 ```bash
-$ npm start
+# Production mode
+npm start
+
+# Run tests
+npm test
 ```
 
-  View the app at: http://localhost:5000
+## 📜 Available Scripts
 
+- `npm run start` - node app.js
+- `npm run test` - App is working fine!
 
-### People
+## 📁 Project Structure
 
-The lead maintainer is [Amit Dubey](https://github.com/amitdubeyup)
+```
+cloudchef/
+├── public/
+├── package.json
+├── .env.example
+├── README.md
+```
 
-### License
+## 🤝 Contributing
 
-  [MIT](LICENSE)
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Amit Dubey**
+
+- GitHub: [@amitdubeyup](https://github.com/amitdubeyup)
