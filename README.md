@@ -12,9 +12,6 @@ Custom software solution built with Express, MongoDB developed to address specif
 ## 🛠️ Tech Stack
 *   **Node.js, MongoDB, Express**
 
-## 👨‍💻 Lead Maintainer
-[@amitdubeyup](https://github.com/amitdubeyup)
-
 ## 📦 Installation
 
 1.  **Clone the repository**:
@@ -29,6 +26,9 @@ Custom software solution built with Express, MongoDB developed to address specif
     ```bash
     npm start    # or python app.py
     ```
+
+## 👨‍💻 Lead Maintainer
+[@amitdubeyup](https://github.com/amitdubeyup)
 
 ## 📄 License
 This project is licensed under the **MIT License**.
